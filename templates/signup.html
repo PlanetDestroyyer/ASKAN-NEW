@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign up Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .gradient-form {
+            background: linear-gradient(135deg, #00a4e4, #00e0a8);
+            color: white;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        img.logo {
+            width: 185px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .form-label {
+            color: white;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border: 1px solid white;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #00e0a8;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #00c088;
+        }
+
+        .btn-outline-danger {
+            border-color: #ff3860;
+            color: #ff3860;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #ff3860;
+            color: white;
+        }
+
+        .small {
+            font-size: 14px;
+        }
+
+        .side-colors {
+            background-color: rgb(94, 124, 100);
+        }
+
+        a {
+           color: red;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="h-100 gradient-form">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-center">
+                                        <img src="/static\media/logo.jpg"  
+                                            alt="logo" class="logo" style="    border-radius: 50%;">
+                                        <h3 class="mt-1 mb-5 pb-1">Welcome to ASKAN</h3>
+                                    </div>
+
+                                    <form action="/sign-home" method="post">
+
+                                        <div class="form-outline ">
+                                            <label for="fullname" class="form-label">Full Name</label>
+                                            <input type="text" id="fullname" class="form-control"
+                                                placeholder="Full Name" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input type="text" id="username" class="form-control"
+                                                placeholder="Username" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" id="password" class="form-control"
+                                                placeholder="Password" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                            <input type="password" id="confirmPassword" class="form-control"
+                                                placeholder="Confirm Password" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="areaOfWork" class="form-label">Area Of Working</label>
+                                            <input type="text" id="areaOfWork" class="form-control"
+                                                placeholder="Area Of Working" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="country" class="form-label">Country</label>
+                                            <input type="text" id="country" class="form-control"
+                                                placeholder="Country" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="gender" class="form-label">Gender</label>
+                                            <input type="text" id="gender" class="form-control"
+                                                placeholder="Gender" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="qualification" class="form-label">Qualification</label>
+                                            <input type="text" id="qualification" class="form-control"
+                                                placeholder="Qualification" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="purpose" class="form-label">Purpose</label>
+                                            <input type="text" id="purpose" class="form-control"
+                                                placeholder="Purpose" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="mobileNumber" class="form-label">Mobile Number</label>
+                                            <input type="text" id="mobileNumber" class="form-control"
+                                                placeholder="Mobile Number" />
+                                        </div>
+                                        <div class="form-outline ">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" id="email" class="form-control"
+                                                placeholder="Email" />
+                                        </div>
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                                type="submit">Sign Up</button>
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-center ">
+                                            <p class="mb-0 me-2">Already have an account?</p>
+                                            <a href="/login"><button type="button" class="btn btn-outline-danger">Login</button></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2 side-colors">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
