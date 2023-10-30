@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
   <title>Home</title>
   <style>
     body {
@@ -105,6 +107,43 @@
       align-items: center;
 
     }
+
+    @media only screen and (max-width: 600px){
+
+
+      html {
+        font: small;
+      }
+      .advantages ul li {
+        /* font-size: ; */
+      }
+      .advantages .col-12 {
+      width: 100%; 
+    }
+      #email-id {
+        margin-left: -100%;
+      }
+      #gif{
+        width: 50%;
+        height: 50%;
+      }
+      .custom-mobile-view{
+        margin-top: 10px;
+    margin-left: 5px;
+      }
+      .home-images-1 {
+      width: 10rem;
+      height: 8rem;
+        
+      border-radius: 2px;
+      }
+      .home-images-2 {
+      width: 10rem;
+      height: 8rem;
+      border-radius: 2px;
+      margin: 0 0 10px;
+      }
+    }
   </style>
 
 </head>
@@ -113,51 +152,40 @@
 
   <div class="loader"></div>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg ">
-    <!-- Container wrapper -->
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent2">
+        <i class="fas fa-bars text-dark"></i>
       </button>
-
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="/aboutus">
-          <img src="/static\media/logo.jpg" alt="logo" class="logo" style=" border-radius: 50%;" height="40" />
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/activity">Activity</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contactus">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/crops_entry">Crops Entry</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Equipment_Management">Equipment Management</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-      <div class="profile">
-        <a href="/profile"><button type="button" class="btn btn-outline-success">Profile</button></a>
-      </div>
-
-      <!-- Right elements -->
-      <!-- Right elements -->
+        <div class="collapse navbar-collapse custom-mobile-view " id="navbarToggleExternalContent2">
+            <a class="navbar-brand mt-2 mt-lg-0" href="/aboutus">
+                <img src="/static\media/logo.jpg" alt="logo" class="logo" style="border-radius: 50%;" height="40" />
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/activity">Activity</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contactus">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/crops_entry">Crops Entry</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Equipment_Management">Equipment Management</a>
+                </li>
+            </ul>
+            <div class="profile">
+                <a href="/profile"><button type="button" class="btn btn-outline-success">Profile</button></a>
+            </div>
+        </div>
     </div>
-    <!-- Container wrapper -->
-  </nav>
+</nav>
+
+<!-- Navbar -->
   <!-- Navbar -->
   {% block body %}
 
@@ -177,15 +205,16 @@
       <div class="col-12 col-lg-6">
         <div class="home-70 my-4">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6 order-md-1 order-2">
               <img class="home-images-1" src="/static/media/home_image1.jpeg" alt="image-1">
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6 order-md-2 order-1">
               <img class="home-images-2" src="/static/media/homeimage2.webp" alt="image-1">
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
   </section>
@@ -210,41 +239,38 @@
   </section>
   <hr>
   <section>
-    <div class="container">
+    <div class="container advantages">
       <div class="row justify-content-center">
         <h1 class="text-center border-bottom-green">
           <span class="bottom-border-txt">Advantages of Hydroponic Farming </span>
         </h1>
-        <div class="col-8 col-lg-7 my-5 ">
+        <div class="col-12 my-5">
           <ul>
-            <li><em class="atg-txt">Water Conservation: </em> Hydroponic farming uses up to 90% less water compared to
-              conventional agriculture, making it a highly efficient and sustainable option. By recirculating and
-              reusing water, it significantly reduces water wastage.</li>
-            <li><em class="atg-txt">Space Efficiency:</em> Hydroponic systems can be set up vertically, maximizing the
-              use of available space. This vertical arrangement allows for higher plant density and increased yield per
-              square foot, making it ideal for urban areas or places with limited land.</li>
-            <li><em class="atg-txt">Year-round Production:</em> With hydroponics, you have the ability to grow crops all
-              year long, regardless of the season or climate. By controlling the environment, including temperature,
-              lighting, and humidity, you can create the perfect conditions for plant growth, ensuring a constant supply
-              of fresh produce.</li>
-            <li><em class="atg-txt">Enhanced Nutrient Control:</em> Hydroponics enables precise control over the
-              nutrients plants receive. By directly providing essential nutrients to the root system, plants can absorb
-              them more efficiently, resulting in faster growth and healthier crops. This level of control also
-              minimizes the use of chemical fertilizers.</li>
-            <li><em class="atg-txt">Reduced Pest and Disease Pressure:</em> Since hydroponic systems are typically
-              enclosed, pests and diseases are less likely to affect your crops. By eliminating the need for pesticides
-              and reducing the risk of contamination, hydroponic farming promotes cleaner and healthier food production.
+            <li>
+              <em class="atg-txt">Water Conservation:</em> Hydroponic farming uses up to 90% less water compared to conventional agriculture, making it a highly efficient and sustainable option. By recirculating and reusing water, it significantly reduces water wastage.
+            </li>
+            <li>
+              <em class="atg-txt">Space Efficiency:</em> Hydroponic systems can be set up vertically, maximizing the use of available space. This vertical arrangement allows for higher plant density and increased yield per square foot, making it ideal for urban areas or places with limited land.
+            </li>
+            <li>
+              <em class="atg-txt">Year-round Production:</em> With hydroponics, you have the ability to grow crops all year long, regardless of the season or climate. By controlling the environment, including temperature, lighting, and humidity, you can create the perfect conditions for plant growth, ensuring a constant supply of fresh produce.
+            </li>
+            <li>
+              <em class="atg-txt">Enhanced Nutrient Control:</em> Hydroponics enables precise control over the nutrients plants receive. By directly providing essential nutrients to the root system, plants can absorb them more efficiently, resulting in faster growth and healthier crops. This level of control also minimizes the use of chemical fertilizers.
+            </li>
+            <li>
+              <em class="atg-txt">Reduced Pest and Disease Pressure:</em> Since hydroponic systems are typically enclosed, pests and diseases are less likely to affect your crops. By eliminating the need for pesticides and reducing the risk of contamination, hydroponic farming promotes cleaner and healthier food production.
             </li>
           </ul>
         </div>
-        <div class="col-4 col-lg-5 center-vertically">
-          <iframe src="https://giphy.com/embed/OH9zWD6tKD9E5QL7Ru" width="480" height="406" frameBorder="0"
-            class="giphy-embed" allowFullScreen></iframe>
-          <p><a href="https://giphy.com/gifs/plant-bean-growing-OH9zWD6tKD9E5QL7Ru"></a></p>
+        <div class="col-12 center-vertically">
+          <iframe src="https://giphy.com/embed/OH9zWD6tKD9E5QL7Ru" width="480" height="406" frameborder="0" class="giphy-embed" allowfullscreen></iframe>
+          <p><a href="https://giphy.com/gifs/plant-bean-growing-OH9zWD6tKD9W96eJTy" id="gif"></a></p>
         </div>
       </div>
     </div>
   </section>
+  
   <hr>
   <section>
     <h1 class="justify-content-center align-items-center text-center "> <span class="bottom-border-txt">VIDEOS</span>
@@ -398,10 +424,14 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="width: 35%;">
             <!-- Links -->
             <h5 class="text-uppercase fw-bold mb-4" style="color: rgb(1, 88, 1);">Contact</h5>
-            <p><i class="fas fa-home me-3 text-secondary"></i> Pune ,India</p>
-            <p><i class="fas fa-envelope me-3 text-secondary"></i>askan.hydroponics2023@gmail.com</p>
-            <p><i class="fas fa-phone me-3 text-secondary"></i> +91 9834778695</p>
-            <p><i class="fas fa-phone me-3 text-secondary"></i> +91 9834778695</p>
+            <i class="fas fa-home me-3 text-secondary"></i>
+            <p> Pune ,India</p>
+            <i class="fas fa-envelope me-3 text-secondary"></i> 
+            <p id="email-id">askan.hydroponics2023@gmail.com</p>
+            <i class="fas fa-phone me-3 text-secondary"></i> 
+            <p>+919834778695</p>
+            <i class="fas fa-phone me-3 text-secondary"></i> 
+            <p>+919834778695</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -417,6 +447,9 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-9th9z93L28oflHeHJJxj8G9HnT/mJPzxo1TmsFz5Xf3ddA5v7tQULMZQXmaY5z00"
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
