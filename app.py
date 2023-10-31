@@ -1,18 +1,12 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from flask_pymongo import PyMongo
-from flask_bcrypt import Bcrypt  # for password hashing
-from flask_wtf.csrf import CSRFProtect  # for CSRF protection
-from pymongo import MongoClient
 
-app = Flask(__name__, static_url_path='/static')
-app.secret_key = "your_secret_key"  # Change this to a strong and secret key
+app = Flask(__name__, static_url_path='/static')
 app.config['MONGO_URI'] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
 mongo = PyMongo(app)
-bcrypt = Bcrypt(app)
-csrf = CSRFProtect(app)
 
-# Database collection
-users_collection = mongo.db.users
+
+
 
 @app.route("/")
 def main():
@@ -20,19 +14,8 @@ def main():
 
 @app.route("/login", methods=["POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
+    return render_template('home.html')
 
-        # Check if the username exists in the database
-        user = users_collection.find_one({"username": username})
-
-        if user and bcrypt.check_password_hash(user['password'], password):
-            session['username'] = username
-            return redirect(url_for("home"))
-        else:
-            flash("Invalid username or password", "danger")
-            return redirect(url_for("main"))
 
 
 
@@ -42,10 +25,8 @@ def login_home():
 
 @app.route("/home")
 def home():
-    if 'username' in session:
-        return render_template('home.html')
-    else:
-        return redirect(url_for("main"))
+    return render_template('home.html')
+    
 
 @app.route("/sign-home", methods=["POST"])
 def sigin_home():
