@@ -34,7 +34,140 @@
   <link rel="stylesheet" href="/static\media\styles\home.css">
   
   <style>
-    /*  */
+
+    body {
+      background-image: linear-gradient(to bottom, transparent 0%, black 100%), url('/static/media/newhome.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: rgb(255, 255, 255);
+      justify-content: left;
+      font-size: 130%;
+      /* background: linear-gradient( transparent 0%, black 3%); */
+    }
+
+
+    nav {
+      background: rgba(31, 31, 31, 1);
+
+    }
+
+    nav ul li a {
+      color: white;
+    }
+
+    .nav-link {
+      /* font-weight: bolder; */
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .head-txt {
+      font-size: 210%;
+      color: rgb(29, 86, 44);
+
+    }
+
+    footer {
+      background: rgba(17, 17, 17, 1);
+
+    }
+
+    .footer-txt {
+      color: white !important;
+    }
+
+    nav ul li a:hover {
+      /* Define the styles you want to apply on hover */
+      background-color: rgb(29, 86, 44);
+      /* Change background color on hover */
+      border-radius: 2px;
+      /* Change text color on hover */
+    }
+
+    .home-30 {
+      width: 30%;
+    }
+
+    .home-70 {
+      width: 70%;
+    }
+
+    .home-images-1 {
+      width: 17rem;
+      height: 14rem;
+      border-radius: 2px;
+    }
+
+    .home-images-2 {
+      width: 17rem;
+      height: 14rem;
+      margin-left: 8rem;
+      border-radius: 2px;
+    }
+
+    em {
+      color: rgb(29, 86, 44);
+    }
+
+    .bottom-border-txt {
+      border-bottom: 4px solid green;
+
+    }
+
+    .atg-txt {
+      color: black;
+    }
+
+    .text-color {
+      color: bisque;
+    }
+
+    .center-vertically {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    @media only screen and (max-width: 600px){
+
+
+      html {
+        font: small;
+      }
+      .advantages ul li {
+        /* font-size: ; */
+      }
+      .advantages .col-12 {
+      width: 100%; 
+    }
+      #email-id {
+        margin-left: -100%;
+      }
+      #gif{
+        width: 50%;
+        height: 50%;
+      }
+      .custom-mobile-view{
+        margin-top: 10px;
+    margin-left: 5px;
+      }
+      .home-images-1 {
+      width: 10rem;
+      height: 8rem;
+        
+      border-radius: 2px;
+      }
+      .home-images-2 {
+      width: 10rem;
+      height: 8rem;
+      border-radius: 2px;
+      margin: 0 0 10px;
+      }
+    }
+
   </style>
 
 </head>
