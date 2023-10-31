@@ -31,11 +31,11 @@ def login():
 def sign():
     return render_template('/signup.html')
 
-@app.route("/aboutus")
+@app.route("/about-us")
 def about():
     return render_template('/aboutus.html')
 
-@app.route("/contactus")
+@app.route("/contact-us")
 def contact():
     return render_template('/contact_us.html')
 
@@ -47,11 +47,11 @@ def profile():
 def activity():
     return render_template('/activity.html')
 
-@app.route("/crops_entry")
+@app.route("/crops-entry")
 def crops_entry():
     return render_template('/Crops_Entry.html')
 
-@app.route("/Equipment_Management")
+@app.route("/Equipment-Management")
 def equipment_management():
     return render_template('/Equipment_Management.html')
 

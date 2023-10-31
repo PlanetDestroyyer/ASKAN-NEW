@@ -1,3 +1,40 @@
 {% extends 'home.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/media/styles/equipment.css') }}">
+    <title>{% block title %}Equipment Management{% endblock %}</title>
+{% endblock %}
 {% block body %}
+
+<div class="container my-5 equipment-div">
+    <div class="row">
+        <div class="col-sm-6" style="border-left: 2px solid white ; height: 100vh; border-radius: 5px;">
+            <div class="justify-content-center align-items-center text-center">
+                <h2 class="bottom-border-txt">TEMPERATURE</h2>
+                <div class="row g-3 align-items-center mx-5 my-5">
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label">Live Temperature</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-sm-6"style="width: 2px; border: 1px white solid;"></div> -->
+        <div class="col-sm-6" style="border-right: 2px solid white; height: 100vh; border-radius: 5px;">
+            <div class="justify-content-center align-items-center text-center">
+                <h2 class="bottom-border-txt">HUMIDITY</h2>
+                <div class="row g-3 align-items-center mx-5 my-5">
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label">Live Humidity</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock body %}
