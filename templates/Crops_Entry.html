@@ -1,3 +1,45 @@
 {% extends 'home.html' %}
+
 {% block body %}
+<link rel="stylesheet" href="/static\media\styles\crops.css">
+  <div class="container text-center my-5">
+    <form style="max-width: 400px; margin: 0 auto;">
+      <div class="mb-3">
+        <label for="region" class="form-label">Enter your region (For India Only):</label>
+        <input type="text" class="form-control" id="region" name="region" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="area" class="form-label">Area of working (in square meters):</label>
+        <input type="number" class="form-control" id="area" name="area" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="min-temperature" class="form-label">Average Temperature - Minimum (°C):</label>
+        <input type="number" class="form-control" id="min-temperature" name="min-temperature" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="max-temperature" class "form-label">Average Temperature - Maximum (°C):</label>
+        <input type="number" class="form-control" id="max-temperature" name="max-temperature" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="crop-name" class="form-label">Name of Crop:</label>
+        <input type="text" class="form-control" id="crop-name" name="crop-name" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="crop-breed" class="form-label">Breed of Crop:</label>
+        <input type="text" class="form-control" id="crop-breed" name="crop-breed" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="crop-height" class="form-label">Average Height of Crops (in cm):</label>
+        <input type="number" class="form-control" id="crop-height" name="crop-height" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="seed-source" class="form-label">Select Seed Source:</label>
+        <select class="form-select" id="seed-source" name="seed-source" multiple>
+          <option value="volvo">Home Made</option>
+          <option value="saab">Purchased from Provider</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-outline-success">Submit</button>
+    </form>
+  </div>
 {% endblock body %}

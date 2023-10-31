@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,logging
 from crops import *
-
+from waitress import server
+# from equipment import *
 app = Flask(__name__, static_url_path='/static')
 
 
@@ -55,7 +56,9 @@ def crops_entry():
 def equipment_management():
     return render_template('/Equipment_Management.html')
 
+@app.route("/products")
+def products():
+    return render_template('/products.html')
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    server(app, host="0.0.0.0", port=8080)
