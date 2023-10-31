@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect,logging
 from crops import *
 from waitress import server
-# from equipment import *
+from equipment import *
 app = Flask(__name__, static_url_path='/static')
 
 
