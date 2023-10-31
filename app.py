@@ -1,14 +1,40 @@
-from flask import Flask, render_template, request, redirect,logging
-from crops import *
-from waitress import server
-from equipment import *
+from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask_pymongo import PyMongo
+from flask_bcrypt import Bcrypt  # for password hashing
+from flask_wtf.csrf import CSRFProtect  # for CSRF protection
+from pymongo import MongoClient
+
 app = Flask(__name__, static_url_path='/static')
+app.secret_key = "your_secret_key"  # Change this to a strong and secret key
+app.config['MONGO_URI'] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
+mongo = PyMongo(app)
+bcrypt = Bcrypt(app)
+csrf = CSRFProtect(app)
 
-
+# Database collection
+users_collection = mongo.db.users
 
 @app.route("/")
 def main():
     return render_template("login.html")
+
+@app.route("/login", methods=["POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # Check if the username exists in the database
+        user = users_collection.find_one({"username": username})
+
+        if user and bcrypt.check_password_hash(user['password'], password):
+            session['username'] = username
+            return redirect(url_for("home"))
+        else:
+            flash("Invalid username or password", "danger")
+            return redirect(url_for("main"))
+
+
 
 @app.route("/login-home", methods=["POST"])
 def login_home():
@@ -16,17 +42,16 @@ def login_home():
 
 @app.route("/home")
 def home():
-    return render_template('home.html')
-
+    if 'username' in session:
+        return render_template('home.html')
+    else:
+        return redirect(url_for("main"))
 
 @app.route("/sign-home", methods=["POST"])
 def sigin_home():
     return render_template('home.html')
 
 
-@app.route("/login")
-def login():
-    return render_template('/login.html')
 
 @app.route("/sign")
 def sign():
