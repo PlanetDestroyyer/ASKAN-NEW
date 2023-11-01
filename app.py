@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
+
 from pymongo import MongoClient
 from waitress import serve 
 
@@ -11,9 +12,24 @@ records = db.user
 
 app.secret_key = 'askan_hydroponics'
 
+from flask_pymongo import PyMongo
+
+app = Flask(__name__, static_url_path='/static')
+
+app.config['MONGO_URI'] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
+mongo = PyMongo(app)
+
+
+
+
+
 @app.route("/")
 def main():
     return render_template("login.html")
+
+@app.route("/login", methods=["POST"])
+def login():
+    return render_template('home.html')
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -25,14 +41,12 @@ def login():
 
         if user is not None:
             if user['password'] == password:
-                session['username'] = username 
+                session['username'] = username  # Store username in the session
                 return redirect('/home')
             else:
                 return render_template('login.html', info="Invalid Username or Password")
         else:
             return render_template('login.html', info="User Not Found")
-
-
 
 @app.route("/login-home", methods=["POST"])
 def login_home():
@@ -40,6 +54,13 @@ def login_home():
 
 @app.route("/home")
 def home():
+
+    return render_template('home.html')
+    
+
+@app.route("/sign-home", methods=["POST"])
+def sigin_home():
+
     return render_template('home.html')
 
 
