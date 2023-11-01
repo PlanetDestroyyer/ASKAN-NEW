@@ -1,18 +1,15 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
-from flask_pymongo import PyMongo
-from flask_bcrypt import Bcrypt  # for password hashing
-from flask_wtf.csrf import CSRFProtect  # for CSRF protection
 from pymongo import MongoClient
+from waitress import serve 
 
 app = Flask(__name__, static_url_path='/static')
-app.secret_key = "your_secret_key"  # Change this to a strong and secret key
-app.config['MONGO_URI'] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
-mongo = PyMongo(app)
-bcrypt = Bcrypt(app)
-csrf = CSRFProtect(app)
+app.config["MONGO_URI"] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient("mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority")
+db = client.get_database('askan')
 
-# Database collection
-users_collection = mongo.db.users
+records = db.user
+
+app.secret_key = 'askan_hydroponics'
 
 @app.route("/")
 def main():
@@ -24,15 +21,16 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Check if the username exists in the database
-        user = users_collection.find_one({"username": username})
+        user = records.find_one({"username": username})
 
-        if user and bcrypt.check_password_hash(user['password'], password):
-            session['username'] = username
-            return redirect(url_for("home"))
+        if user is not None:
+            if user['password'] == password:
+                session['username'] = username 
+                return redirect('/home')
+            else:
+                return render_template('login.html', info="Invalid Username or Password")
         else:
-            flash("Invalid username or password", "danger")
-            return redirect(url_for("main"))
+            return render_template('login.html', info="User Not Found")
 
 
 
@@ -42,19 +40,50 @@ def login_home():
 
 @app.route("/home")
 def home():
-    if 'username' in session:
-        return render_template('home.html')
-    else:
-        return redirect(url_for("main"))
-
-@app.route("/sign-home", methods=["POST"])
-def sigin_home():
     return render_template('home.html')
 
 
+@app.route("/signin-home", methods=["POST"])
+def signin_home():
+    full_name = request.form.get("fullname")
+    username = request.form.get("username")
+    password = request.form.get("password")
+    cfn_password = request.form.get("confirmPassword")
+    area_of_working = request.form.get("areaOfWork")
+    country = request.form.get("country")
+    gender = request.form.get("gender")
+    qualification = request.form.get("qualification")
+    purpose = request.form.get("purpose")
+    phone = request.form.get("phone")
+    email = request.form.get("email")
 
-@app.route("/sign")
-def sign():
+    new_user = {
+        "fullname": full_name,
+        "username" : username,
+        "password" : password,
+        "Area_of_Working" : area_of_working,
+        "country" : country,
+        "gender" : gender,
+        "qualification": qualification,
+        "purpose": purpose,
+        "phone" : phone,
+        "email" : email
+    }
+
+    if password == cfn_password :
+        records.insert_one(new_user)
+        
+        return redirect('/')
+    else:
+        return render_template('/signup.html',info="Yours Passwords Dont Match Please Check it once")
+
+
+   
+
+
+
+@app.route("/signup")
+def signup():
     return render_template('/signup.html')
 
 @app.route("/about-us")
@@ -67,7 +96,12 @@ def contact():
 
 @app.route("/profile")
 def profile():
-    return render_template('/profile.html')
+    if 'username' in session:
+        username = session['username']
+        user = records.find_one({"username": username})
+        if user:
+            return render_template('/profile.html', user=user)
+
 
 @app.route("/activity")
 def activity():
@@ -86,4 +120,4 @@ def products():
     return render_template('/products.html')
 
 if __name__ == "__main__":
-    server(app, host="0.0.0.0", port=8080)
+    serve(app, host="0.0.0.0", port=8080)

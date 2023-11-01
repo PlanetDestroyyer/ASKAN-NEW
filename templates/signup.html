@@ -127,71 +127,74 @@
                                         <h3 class="mt-1 mb-5 pb-1">Welcome to ASKAN</h3>
                                     </div>
 
-                                    <form action="/sign-home" method="post">
+                                    <h5 class="mt-3 text-center" style="color: red;">{{info}}</h5>
+                                    
+
+                                    <form action="/signin-home" method="post" enctype="multipart/form-data">
 
                                         <div class="form-outline ">
                                             <label for="fullname" class="form-label">Full Name</label>
-                                            <input type="text" id="fullname" class="form-control"
-                                                placeholder="Full Name" />
+                                            <input type="text" id="fullname" name="fullname" class="form-control"
+                                                placeholder="Full Name" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="username" class="form-label">Username</label>
-                                            <input type="text" id="username" class="form-control"
-                                                placeholder="Username" />
+                                            <input type="text" id="username" name="username" class="form-control"
+                                                placeholder="Username" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="password" id="password" class="form-control"
-                                                placeholder="Password" />
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                placeholder="Password" required />
                                         </div>
                                         <div class="form-outline ">
                                             <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                            <input type="password" id="confirmPassword" class="form-control"
-                                                placeholder="Confirm Password" />
+                                            <input type="password" id="confirmPassword"name="confirmPassword" class="form-control"
+                                                placeholder="Confirm Password" required />
                                         </div>
                                         <div class="form-outline ">
                                             <label for="areaOfWork" class="form-label">Area Of Working</label>
-                                            <input type="text" id="areaOfWork" class="form-control"
-                                                placeholder="Area Of Working" />
+                                            <input type="text" id="areaOfWork" name="areaOfWork" class="form-control"
+                                                placeholder="Area Of Working" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="country" class="form-label">Country</label>
-                                            <input type="text" id="country" class="form-control"
-                                                placeholder="Country" />
+                                            <input type="text" id="country" name="country" class="form-control"
+                                                placeholder="Country" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="gender" class="form-label">Gender</label>
-                                            <input type="text" id="gender" class="form-control"
-                                                placeholder="Gender" />
+                                            <input type="text" id="gender" name="gender" class="form-control"
+                                                placeholder="Gender" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="qualification" class="form-label">Qualification</label>
-                                            <input type="text" id="qualification" class="form-control"
-                                                placeholder="Qualification" />
+                                            <input type="text" id="qualification" name="qualification" class="form-control"
+                                                placeholder="Qualification" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="purpose" class="form-label">Purpose</label>
-                                            <input type="text" id="purpose" class="form-control"
-                                                placeholder="Purpose" />
+                                            <input type="text" id="purpose" name="purpose" class="form-control"
+                                                placeholder="Purpose" required />
                                         </div>
                                         <div class="form-outline ">
                                             <label for="mobileNumber" class="form-label">Mobile Number</label>
-                                            <input type="text" id="mobileNumber" class="form-control"
-                                                placeholder="Mobile Number" />
+                                            <input type="text" id="mobileNumber" name="phone" class="form-control"
+                                                placeholder="Mobile Number" required/>
                                         </div>
                                         <div class="form-outline ">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" id="email" class="form-control"
-                                                placeholder="Email" />
+                                            <input type="email" id="email" name="email" class="form-control"
+                                                placeholder="Email" required/>
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 my-4"
                                                 type="submit">Sign Up</button>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center ">
                                             <p class="mb-0 me-2">Already have an account?</p>
-                                            <a href="/login"><button type="button" class="btn btn-outline-danger">Login</button></a>
+                                            <a href="/"><button type="button" class="btn btn-outline-danger ">Login</button></a>
                                         </div>
                                     </form>
                                 </div>

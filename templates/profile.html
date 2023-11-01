@@ -8,9 +8,9 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              <img src="/static\media\framer.jpg" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">User Name</h5>
+              <h5 class="my-3">{{ user.username }}</h5>
             </div>
           </div>
         </div>
@@ -22,7 +22,8 @@
                   <p class="mb-0">Full Name</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0"> {{ user.fullname }}</p>
+                  
                 </div>
               </div>
               <hr>
@@ -31,25 +32,17 @@
                   <p class="mb-0">Email</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">example@example.com</p>
+                  <p class="text-muted mb-0">{{ user.email }}</p>
                 </div>
               </div>
               <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Username</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">(097) 234-5678</p>
-                </div>
-              </div>
-              <hr>
+              
               <div class="row">
                 <div class="col-sm-3">
                   <p class="mb-0">Mobile</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">(098) 765-4321</p>
+                  <p class="text-muted mb-0">{{ user.phone }}</p>
                 </div>
               </div>
               <hr>
@@ -58,7 +51,7 @@
                   <p class="mb-0">Password</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.password }}</p>
                 </div>
               </div>
               <hr>
@@ -67,7 +60,7 @@
                   <p class="mb-0">Area of Working </p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.Area_of_Working }}</p>
                 </div>
               </div>
               <hr>
@@ -76,7 +69,7 @@
                   <p class="mb-0">Country</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.country }}</p>
                 </div>
               </div>
               <hr>
@@ -85,7 +78,7 @@
                   <p class="mb-0">Gender</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.gender }}</p>
                 </div>
               </div>
               <hr>
@@ -94,7 +87,7 @@
                   <p class="mb-0">Qualification</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.qualification }}</p>
                 </div>
               </div>
               <hr>
@@ -103,18 +96,10 @@
                   <p class="mb-0">Purpose</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{ user.purpose }}</p>
                 </div>
               </div>
               <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Password</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
