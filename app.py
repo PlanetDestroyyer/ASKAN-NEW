@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
-
 from pymongo import MongoClient
-from waitress import serve 
+from waitress import serve
 
 app = Flask(__name__, static_url_path='/static')
 app.config["MONGO_URI"] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
@@ -12,24 +11,9 @@ records = db.user
 
 app.secret_key = 'askan_hydroponics'
 
-from flask_pymongo import PyMongo
-
-app = Flask(__name__, static_url_path='/static')
-
-app.config['MONGO_URI'] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
-mongo = PyMongo(app)
-
-
-
-
-
 @app.route("/")
 def main():
     return render_template("login.html")
-
-@app.route("/login", methods=["POST"])
-def login():
-    return render_template('home.html')
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -48,19 +32,15 @@ def login():
         else:
             return render_template('login.html', info="User Not Found")
 
+
+
+
 @app.route("/login-home", methods=["POST"])
 def login_home():
     return render_template('home.html')
 
 @app.route("/home")
 def home():
-
-    return render_template('home.html')
-    
-
-@app.route("/sign-home", methods=["POST"])
-def sigin_home():
-
     return render_template('home.html')
 
 
@@ -82,7 +62,7 @@ def signin_home():
         "fullname": full_name,
         "username" : username,
         "password" : password,
-        "Area_of_Working" : area_of_working,
+        "Area of Working" : area_of_working,
         "country" : country,
         "gender" : gender,
         "qualification": qualification,
@@ -93,7 +73,6 @@ def signin_home():
 
     if password == cfn_password :
         records.insert_one(new_user)
-        
         return redirect('/')
     else:
         return render_template('/signup.html',info="Yours Passwords Dont Match Please Check it once")
@@ -122,7 +101,11 @@ def profile():
         user = records.find_one({"username": username})
         if user:
             return render_template('/profile.html', user=user)
-
+        else:
+            flash("User not found")
+            return redirect('/')
+    else:
+        return redirect('/')
 
 @app.route("/activity")
 def activity():
