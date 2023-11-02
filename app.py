@@ -13,7 +13,7 @@ app.secret_key = 'askan_hydroponics'
 
 @app.route("/")
 def main():
-    return render_template("login.html")
+    return render_template("index.html")
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -62,7 +62,7 @@ def signin_home():
         "fullname": full_name,
         "username" : username,
         "password" : password,
-        "Area of Working" : area_of_working,
+        "Area_of_Working" : area_of_working,
         "country" : country,
         "gender" : gender,
         "qualification": qualification,
@@ -73,13 +73,15 @@ def signin_home():
 
     if password == cfn_password :
         records.insert_one(new_user)
-        return redirect('/')
+        return redirect('/log-in')
     else:
         return render_template('/signup.html',info="Yours Passwords Dont Match Please Check it once")
 
 
    
-
+@app.route("/log-in")
+def login_button():
+    return render_template('/login.html')
 
 
 @app.route("/signup")
@@ -122,6 +124,37 @@ def equipment_management():
 @app.route("/products")
 def products():
     return render_template('/products.html')
+
+
+@app.route("/index")
+def index():
+    return render_template('/index.html')
+
+@app.route("/gallery")
+def gallery():
+    return render_template('/gallery.html')
+
+@app.route("/base-contact")
+def base_contact():
+    return render_template('/base_contactus.html')
+
+@app.route("/services")
+def services():
+    return render_template('/services.html')
+
+@app.route("/blogs")
+def blogs():
+    return render_template('/blogs.html')
+
+@app.route("/faq")
+def faq():
+    return render_template('/faq.html')
+
+@app.route("/logout")
+def logout():
+    session.pop('username', None)  
+    flash('You have been logged out', 'success')  
+    return redirect('/')
 
 if __name__ == "__main__":
     serve(app, host="0.0.0.0", port=8080)
