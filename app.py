@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from pymongo import MongoClient
 from waitress import serve
-from water import waterLevel
+import serial
+import time
+from decimal import Decimal
+
 app = Flask(__name__, static_url_path='/static')
 app.config["MONGO_URI"] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient("mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority")
@@ -119,7 +122,42 @@ def crops_entry():
 
 @app.route("/Equipment-Management")
 def equipment_management():
-    return render_template('/Equipment_Management.html')
+    
+    try :
+    
+        ser = serial.Serial('COM7', 9600) 
+
+
+        lowerThreshold = 310
+        upperThreshold = 510
+
+        # Function to print water level message
+        def print_water_level_message(level):
+            if level <= 0:
+                print("Water Level: need more water")
+            elif 0 < level <= 400:
+                print("Water Level: need water")
+            else:
+                print("Water Level: full")
+
+        while True:
+
+
+            line = ser.readline().decode().rstrip()
+
+            new_line = int(float(line[-1]))
+
+            if line:
+                waterLevel = int(new_line)  
+                print_water_level_message(waterLevel)
+
+            else:
+                print("The sensors are not connected or reload the website")
+
+            time.sleep(1)
+    except :
+        print("Connect the sensor")
+    return render_template('/Equipment_Management.html' , waterLevel = waterLevel)
 
 @app.route("/products")
 def products():
