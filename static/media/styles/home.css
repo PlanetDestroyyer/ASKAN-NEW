@@ -88,6 +88,28 @@ body {
     color: rgb(179, 190, 122);
   }
 
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    font-size: 20px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #2adf39;
+    line-height: 1.6;
+}
+
 
   .bottom-border-txt {
     border-bottom: 4px solid green;

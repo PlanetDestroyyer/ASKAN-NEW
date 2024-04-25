@@ -1,5 +1,65 @@
 {% extends 'index.html' %}
 
-{% block body %}
+{% block styles %}
+<style>
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
+    .faq-item {
+        margin-bottom: 20px;
+    }
+
+    .faq-item h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .faq-item p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+    }
+</style>
+{% endblock styles %}
+
+{% block body %}
+<div class="faq-container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>How does hydroponics work?</h3>
+        <p>Hydroponics is a method of growing plants without using soil. Instead, plants are grown in a nutrient-rich water solution, promoting rapid growth.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What kind of plants can be grown using hydroponics?</h3>
+        <p>Virtually any type of plant can be grown using hydroponics, including vegetables, fruits, herbs, and flowers. Examples include cabbage, capsicum, brinjal, tomato, and spinach.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What value pH should be maintained in a hydroponic system?</h3>
+        <p>The ideal pH range for a hydroponic system is 5.5 to 6.5, although specific requirements may vary slightly depending on the plant species.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Why is pH important in hydroponics?</h3>
+        <p>pH plays a crucial role in hydroponics as it directly affects nutrient availability to plants. Maintaining the correct pH level ensures optimal nutrient uptake and healthy plant growth.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What causes plants to die in a hydroponic system?</h3>
+        <p>Common reasons for plant death in hydroponic systems include lack of water, improper pH levels, incorrect fertilizer usage, pest infestations, and environmental stressors.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Is hydroponic farming a new technology?</h3>
+        <p>No, hydroponic farming has ancient roots, dating back to civilizations such as the Hanging Gardens of Babylon in the 6th century B.C. and practices by the Egyptians.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Is hydroponic farming expensive?</h3>
+        <p>Hydroponic farming can be cost-effective, with options for DIY setups and gradual expansion. It doesn't have to be expensive.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Is hydroponic farming harmful for nature?</h3>
+        <p>No, hydroponic farming is considered environmentally friendly, minimizing land, water, and pesticide usage compared to conventional agriculture.</p>
+    </div>
+</div>
 {% endblock body %}
