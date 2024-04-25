@@ -6,3 +6,11 @@ a , p {
 .text-top {
     color: rgb(1, 88, 1) !important;
 }
+
+
+
+.new_cards_adve {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from pymongo import MongoClient
 from waitress import serve
-
+from water import waterLevel
 app = Flask(__name__, static_url_path='/static')
 app.config["MONGO_URI"] = "mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient("mongodb+srv://wrieddude:Pranav369@cluster0.xu62g1z.mongodb.net/?retryWrites=true&w=majority")
@@ -150,6 +150,10 @@ def blogs():
 def faq():
     return render_template('/faq.html')
 
+@app.route("/adverting")
+def adverting():
+    return render_template('/adverting.html')
+
 @app.route("/logout")
 def logout():
     session.pop('username', None)  
@@ -157,4 +161,4 @@ def logout():
     return redirect('/')
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0",debug=True, port=8080)
